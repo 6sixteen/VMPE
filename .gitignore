@@ -1,0 +1,12 @@
+data
+img
+isomap-master
+result
+testImg
+visionDesign
+.zip
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
