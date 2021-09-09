@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .idea
 backend
 data
@@ -13,3 +14,17 @@ node_modules
 *.zip
 
 
+=======
+data
+img
+isomap-master
+result
+testImg
+visionDesign
+.zip
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+>>>>>>> ae58cad0556a236e769b69eef3b715ed15661483
