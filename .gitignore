@@ -1,0 +1,15 @@
+.idea
+backend
+data
+img
+frotend/node_modules
+backend-flask/data
+isomap-master
+parameter
+result
+testImg
+visionDesign
+node_modules
+*.zip
+
+
