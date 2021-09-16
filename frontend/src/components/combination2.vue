@@ -15,6 +15,7 @@
     <!--    <p if-show="show">{{ userSearchTree }}</p>-->
     <!--    {{ drawCombination() }}-->
     <!--    <p>{{imgNames}}</p>-->
+<!--    <button  style="width:150px; height:40px"  @click="$emit('update:testnum',33333)">确定范围</button>-->
     <slot></slot>
   </div>
 </template>
@@ -38,16 +39,16 @@ export default {
       imgNamesPrevious: []
     }
   },
-  props: ["svgId", "svgH", "svgW", "userSearchTree", "imgNames", "filterConfig", "index", "testNum", "testObj"],
-  emits: ["update:userSearchTree", "update:imgNames"],
+  props: ["svgId", "svgH", "svgW", "userSearchTree", "imgNames", "filterConfig", "index", "testnum", "testObj"],
+  emits: ["update:userSearchTree", "update:imgNames","update:testnum"],
   methods: {
     drawCircle() {
       drawCircle(this)
     },
     drawCombination() {
-      console.log(this.svgId, "combination2 drawCombination comData", this.combData)
-      console.log(this.svgId, "imgNames", this.imgNames)
-      console.log(this.svgId, "index", this.index)
+      // console.log(this.svgId, "combination2 drawCombination comData", this.combData)
+      // console.log(this.svgId, "imgNames", this.imgNames)
+      // console.log(this.svgId, "index", this.index)
 
       combinationRing(this.combData, this)
     },
@@ -81,32 +82,35 @@ export default {
   },
   created() {
     this.imgNamesPrevious = this.imgNames
-    const data = {
-      "imgNames": this.imgNames,
-      "filterConfig": this.filterConfig,
-      "index": this.index
+    if (this.imgNames.length != 0) {
+      const data = {
+        "imgNames": this.imgNames,
+        "filterConfig": this.filterConfig,
+        "index": this.index
+      }
+      // console.log("mounted svgId", this.svgId, "combination2", this.imgNames)
+      // console.log(this.svgId, "mounted combnation2")
+      // console.log(this.svgId, "requestJson", data)
+      // console.log(this.svgId, "testNum", this.testNum)
+      axis.defaults.baseURL = "http://localhost:4999"
+      let that = this
+      axis.post('/combinationRing', data
+          , {
+            headers: {"Content-Type": "application/json"}
+          })
+          .then(function (response) {
+            const data = response.data.res
+            // combination(data)
+            // debugger
+            // console.log(that.svgId, "mounted combnation2 request data", data)
+            that.combData = data
+            combinationRing(data, that)
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
-    // console.log("mounted svgId", this.svgId, "combination2", this.imgNames)
-    console.log(this.svgId, "mounted combnation2")
-    console.log(this.svgId, "requestJson", data)
-    console.log(this.svgId, "testNum", this.testNum)
-    axis.defaults.baseURL = "http://localhost:4999"
-    let that = this
-    axis.post('/combinationRing', data
-        , {
-          headers: {"Content-Type": "application/json"}
-        })
-        .then(function (response) {
-          const data = response.data.res
-          // combination(data)
-          // debugger
-          console.log(that.svgId, "mounted combnation2 request data", data)
-          that.combData = data
-          combinationRing(data, that)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+
   },
   // created() {
   //   console.log(this.svgId, "created, imgNames", this.imgNames)
@@ -117,9 +121,9 @@ export default {
   },
   updated() {
 
-    console.log(this.svgId, "updated, imgNames", this.imgNames)
-    console.log(this.svgId, "updated, index", this.index)
-
+    // console.log(this.svgId, "updated, imgNames", this.imgNames)
+    // console.log(this.svgId, "updated, index", this.index)
+    console.log("combination2 updated imgNames")
     if (!(arrayEqual(this.imgNamesPrevious, this.imgNames))) {
       this.imgNamesPrevious = this.imgNames
       const data = {

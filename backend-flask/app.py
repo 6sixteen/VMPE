@@ -3,7 +3,7 @@ Description:
 Writer = "plh"
 Data:2021/8/28
 '''
-from flask import Flask, render_template, url_for, jsonify, request
+from flask import Flask, render_template, url_for, jsonify, request, send_from_directory
 import os
 import os.path as osp
 import pandas as pd
@@ -13,16 +13,20 @@ from flask_cors import *
 import yaml
 import sys
 import json
+import cv2
+import base64
 
 root = os.path.abspath("./")
 print(root)
 sys.path.append(os.path.join(root, "dataProcess"))
+sys.path.append(os.path.join(root, "dataProcess/imageLayout"))
 
 from filter import filterListsCsv_Case1
 from preProcess import divideDatas
-from combination import getNodeAndLinks,getRingCombinationData
+from combination import getNodeAndLinks, getRingCombinationData
 from tool import formatChange, searchCombination, randomFileName, addJson
 from projection.isomap import isomapProject
+from imageLayout.imgLayout import getImgLayoutForFront
 
 app = Flask(__name__)
 CORS(app, resources=r'/*')
@@ -163,7 +167,7 @@ def combination():
     combinationJson = osp.join(caseConfig["combinationFile"], "combination.json")
 
     flag, fileName = searchCombination(combinationJson, request.json, ["imgNames", "filterConfig"])
-    print("flag",flag)
+    print("flag", flag)
     if flag:
         with open(osp.join(caseConfig["combinationFile"], fileName), "r") as f:
             res = json.load(f)
@@ -180,13 +184,16 @@ def combination():
             json.dump(res, f, indent=4)
         return jsonify({"res": res})
 
+
 @app.route("/combinationRing", methods=["POST"])
 def combinationRing():
     imgNames = request.json.get("imgNames")
+    if (len(imgNames) == 0):
+       return
     # 因为传进来的数据都是字符串
     filterConfig = request.json.get("filterConfig")
 
-    #当前组合的索引
+    # 当前组合的索引
     index = request.json.get("index")
 
     # caseConfig = request.json.get("caseConfig")
@@ -205,7 +212,7 @@ def combinationRing():
         data = filterListsCsv_Case1(imgNames, filterConfig, caseConfig)
         # 格式转换 参数集合部分从list->array 然后去掉结果部分
         data = formatChange(data)
-        res = getRingCombinationData(data,index)
+        res = getRingCombinationData(data, index)
 
         fileName = randomFileName(prefix="combinationRing")
         addJson(combinationJson, fileName, request.json)
@@ -214,6 +221,68 @@ def combinationRing():
                 item["matrix"] = item["matrix"].tolist()
             json.dump(res, f, indent=4)
         return jsonify({"res": res})
+
+
+@app.route("/img", methods=["POST"])
+def getImg():
+    imgName = request.json.get("imgName")
+    file_path = osp.join(cfg["caseBaseFile"], "img")
+    try:
+        return send_from_directory(file_path, imgName)
+    except BaseException:
+        return "no img"
+
+
+@app.route("/imgBase64", methods=["POST"])
+def getImgBase64():
+    '''
+    获得一张图片的base64
+    :return:
+    '''
+    imgName = request.json.get("imgName")
+    h = request.json.get("imgHeight")
+    w = request.json.get("imgWidth")
+    file_path = osp.join(cfg["caseBaseFile"], "img", imgName)
+    print("file path", file_path)
+    img = cv2.imread(file_path)
+    img_r = cv2.resize(img, (w, h))
+    image = cv2.imencode('.bmp', img_r)[1]
+    image_code = str(base64.b64encode(image))[2:-1]
+    # print(image_code)
+    # https://blog.csdn.net/qq_24502469/article/details/82495252
+    return jsonify({"res": image_code})
+
+
+@app.route("/imgLayout", methods=["POST"])
+def getImgLayout():
+    '''
+    获得图片的布局信息
+    :return:
+    '''
+    img_file = request.json.get("imgFile")
+    h = request.json.get("containerH")
+    w = request.json.get("containerW")
+    noImg = request.json.get("noImg")
+    json_file = osp.join(cfg["caseBaseFile"], "layout", "layout.json")
+    if osp.exists(json_file):
+        with open(json_file, "r") as f:
+            res = json.load(f)
+            if noImg:
+                for item in res["locations"]:
+                    item[2] = "noImg"
+            return res
+    else:
+        locations, avgH, avgW = getImgLayoutForFront(img_file, suffix="*.bmp", containerH=h, containerW=w)
+        with open(json_file, "w") as f:
+            res = {"locations": locations,
+                   "h": avgH,
+                   "w": avgW}
+            json.dump(res, f, indent=4)
+            if noImg:
+                for item in res["locations"]:
+                    item[2] = "noImg"
+            return jsonify(res)
+
 
 def dated_url_for(endpoint, **values):
     print("values", values)
