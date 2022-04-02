@@ -1,17 +1,9 @@
 <<<<<<< HEAD
 data/case1
-img
-frotend/node_modules
-backend-flask/data
-isomap-master
-parameter
-result
-testImg
-visionDesign
 node_modules
-*.zip
-
-
+package-lock.json
+frotend/node_modules
+node_modules
 =======
 
 img
