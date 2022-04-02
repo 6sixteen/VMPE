@@ -1,0 +1,83 @@
+:root {
+    --containerL-width: 100%;
+    --containerR-width: calc(100% - var(--containerL-width));
+    --containerLU-height: 60%;
+    --containerLD-height: calc(100% - var(--containerLU-height));
+    /*--containerLU-height: 50%;*/
+    /*--containerLD-height: 50%;*/
+    /*--containerLU-height: 487px;*/
+    /*--containerLD-height: 487px;*/
+    --containerLUL-width: 70%;
+    --containerLUR-width: calc(100% - var(--containerLUL-width));
+
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0px;
+    height: 100%;
+}
+
+.containerT {
+    height: 100%;
+    width: 100%;
+}
+
+.containerL {
+    width: var(--containerL-width)
+}
+
+.containerR {
+    width: var(--containerR-width)
+}
+
+.containerLU {
+    height: var(--containerLU-height);
+    width: 100%
+}
+
+.containerLD {
+    height: var(--containerLD-height)
+}
+
+
+.projection {
+    background-color: bisque;
+    font-size: large;
+    padding: 0px;
+}
+
+/*.class1{*/
+/*    stroke: red;*/
+/*    stroke-width: 3px;*/
+
+/*}*/
+/*.class1 {*/
+/*    background: #2c3e50;*/
+/*}*/
+/*.class2 {*/
+/*    background: aqua;*/
+/*    width: 100px;*/
+/*}*/

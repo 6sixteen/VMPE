@@ -1,0 +1,62 @@
+caseBaseFile: "D:/codeTest/parameterExp/data/case1"
+combinationFile: "D:/codeTest/parameterExp/data/case1/combination"
+projectionFile: "D:/codeTest/parameterExp/data/case1/projection"
+graphFile: "D:/codeTest/parameterExp/data/case1/graph"
+imageMap: "D:/codeTest/parameterExp/data/case1/img"
+parameterFile: "D:/codeTest/parameterExp/data/case1/parameter"
+parameterNum: 5
+operationNum: 4
+parameterConfig:
+  0:
+    parameterName: red
+    minValue: 0
+    maxValue: 0
+    step: 0
+    type: "int"
+    use: false
+  1:
+    parameterName: thresholdMin
+    minValue: 20
+    maxValue: 40
+    step: 1
+    type: "int"
+    use: true
+  2:
+    parameterName: thresholdMax
+    minValue: 40
+    maxValue: 60
+    step: 1
+    type: "int"
+    use: true
+  3:
+    parameterName: openingCircle
+    minValue: 2
+    maxValue: 10
+    step: 1
+    type: "int"
+    use: true
+  4:
+    parameterName: selectShapeMatrix
+    minValue: 0.8
+    maxValue: 0.84
+    step: 0.01
+    type: "float"
+    use: true
+
+operationConfig:
+  0:
+    operationName: apply_color_trans_lut
+    parameterNumber: 3
+    parameterDetail: [0]
+  1:
+    operationName: threshold
+    parameterNumber: 2
+    parameterDetail: [1, 2]
+  2:
+    operationName: opening_circle
+    parameterNumber: 1
+    parameterDetail: [3]
+  3:
+    operationName: select_shape
+    parameterNumber: 1
+    parameterDetail: [4]

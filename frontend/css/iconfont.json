@@ -1,0 +1,51 @@
+{
+  "id": "3273696",
+  "name": "machineSee",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "23993054",
+      "name": "面性图表项目列表",
+      "font_class": "mianxingxiangmuliebiao",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "23993057",
+      "name": "面性图表时间轴",
+      "font_class": "mianxingshijianzhou",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "23993061",
+      "name": "面性图表双折线图",
+      "font_class": "mianxingshuangzhexiantu",
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
+      "icon_id": "23993063",
+      "name": "面性图表上下树图结构",
+      "font_class": "mianxingshangxiashutu",
+      "unicode": "e6e2",
+      "unicode_decimal": 59106
+    },
+    {
+      "icon_id": "23993076",
+      "name": "面性图表环形饼图",
+      "font_class": "mianxinghuanxingbingtu",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "23993047",
+      "name": "面性图表左右树图结构",
+      "font_class": "mianxingzuoyoushutu",
+      "unicode": "e6dd",
+      "unicode_decimal": 59101
+    }
+  ]
+}

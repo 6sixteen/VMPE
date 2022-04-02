@@ -1,0 +1,10 @@
+.parameter_select{
+    fill: white;
+    stroke: red;
+    stroke-width: 3px;
+}
+.parameter_no_select{
+    fill:#999999;
+    stroke:black;
+    stroke-width:2px;
+}
