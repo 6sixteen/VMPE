@@ -1,6 +1,6 @@
 
 # Data for VMExplorer
-##Data Description
+## Data Description
 In this case, we measure the area of the white pin section of the circuit board. 
 We took **22** images at different angles of the targets or lighting conditions and identify each image with a unique id to distinguish. 
 Then we selected **4** parameters from **3** key operators for sampling in the visual algorithm. 
@@ -12,8 +12,13 @@ These parameters are ***representative*** that often appear in measurement algor
 The size of the parameter set for each image is 19845. The accuracy range of the measurement target is 34000-36000 in pixel. 
 ## Download
 Yon can download data from "https://pan.baidu.com/s/12wj9bLFPMAkD7F2IXmC6pQ" code：4y47
+## Change Config
+You should change ***config.yml*** in ~/VMPE/backend/config.yml  
+For instance, caseBaseFile: "D:/codeTest/parameterExp/data/case1" ===> caseBaseFile: "***your abstract address***"/data/case1  
+same for combinationFile,projectionFile,graphFile,imageMap,parameterFile
+
 ## File Structure
-That's how your project is supposed to be.
+That's how your project is supposed to be.(***main file structure***)
 |-- VMPE
     |-- .gitignore
     |-- README.md
