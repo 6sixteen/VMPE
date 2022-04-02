@@ -50,7 +50,7 @@ In Information View(A), users can slide the scroll bar to observe the image set 
 After pressing '***X***', the sidebar pops up.  
 
 <img
-  src="https://github.com/6sixteen/VMPE/tree/main/assets/sidebar.jpg"
+  src="https://github.com/6sixteen/VMPE/tree/main/assets/sidebar.JPG"
   alt="sidebar"
   width="500"
 />  
@@ -63,6 +63,7 @@ By ***double clicking the left mouse***, users can translate to drag mode and **
   src="https://github.com/6sixteen/VMPE/tree/main/assets/intersection_view.jpg"
   alt="intersection_view"
   width="500"
+  height="500
 /> 
 
 ***Intersection View*** Parameter-set tributary and intersection river in Intersection View. 
