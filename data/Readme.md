@@ -22,16 +22,16 @@ That's how your project is supposed to be.(***main file structure***)
 
 |-- VMPE  
 &emsp;&emsp;|-- .gitignore  
-    |-- README.md  
-    |-- backend<br/>
-    |-- data<br/>
-    |   |-- Readme.md<br/>
-    |   |-- case1<br/>
-    |       |-- combination<br/>
-    |       |-- graph<br/>
-    |       |-- img<br/>
-    |       |-- parameter<br/>
-    |-- frontend<br/>
+&emsp;&emsp;|-- README.md  
+&emsp;&emsp;|-- backend  
+&emsp;&emsp;|-- data  
+&emsp;&emsp;|&emsp;&emsp;|-- Readme.md  
+&emsp;&emsp;|&emsp;&emsp;|-- case1<br/>
+&emsp;&emsp;|&emsp;&emsp;|-- combination<br/>
+&emsp;&emsp;|&emsp;&emsp;|-- graph<br/>
+&emsp;&emsp;|&emsp;&emsp;|-- img<br/>
+&emsp;&emsp;|&emsp;&emsp;|-- parameter<br/>
+&emsp;&emsp;|-- frontend<br/>
 ## File Description
 case1/img: images  
 
