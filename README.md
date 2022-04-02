@@ -3,7 +3,7 @@
 VMExplorer, a visual analysis system based on sampling for exploring parameter space under consideration of different test images.  
 
 <img
-  src="https://github.com/6sixteen/VMPE/assets/system_overview.jpg"
+  src="https://github.com/6sixteen/VMPE/tree/main/assets/system_overview.jpg"
   alt="system_overview"
   width="500"
 />
