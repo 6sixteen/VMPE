@@ -6,7 +6,8 @@ VMExplorer, a visual analysis system based on sampling for exploring parameter s
   src="https://github.com/6sixteen/VMPE/tree/main/assets/system_overview.jpg"
   alt="system_overview"
   width="500"
-/>
+/>  
+***System Interface.*** (A) Basic Information View displays necessary information, including image sets, sample information and the algorithm. (B) Image Class View shows the relationship among images and class information based on the weighted Jaccard Index and provides fundamental interactions such as changing the image class. (C) Parameter View displays the relationship between different parameters and supports comparing two parameter sets in the line chart. (D) Order View presents the intersection order of the group of parameter sets. (E)Intersection View shows the intersection process of parameter sets with pixel-based image and heatmap.
 ## Abstraction
 Vision measurement becomes a prominent driving force to control product quality in industrial automation with high precision, high efficiency, 
 and non-destruction. 
