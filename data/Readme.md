@@ -19,18 +19,18 @@ same for combinationFile,projectionFile,graphFile,imageMap,parameterFile
 
 ## File Structure
 That's how your project is supposed to be.(***main file structure***)
-|-- VMPE
-    |-- .gitignore
-    |-- README.md
-    |-- backend
-    |-- data
-    |   |-- Readme.md
-    |   |-- case1
-    |       |-- combination
-    |       |-- graph
-    |       |-- img
-    |       |-- parameter
-    |-- frontend
+|-- VMPE<br/>
+    |-- .gitignore<br/>
+    |-- README.md<br/>
+    |-- backend<br/>
+    |-- data<br/>
+    |   |-- Readme.md<br/>
+    |   |-- case1<br/>
+    |       |-- combination<br/>
+    |       |-- graph<br/>
+    |       |-- img<br/>
+    |       |-- parameter<br/>
+    |-- frontend<br/>
 ## File Description
 case1/img: images  
 
