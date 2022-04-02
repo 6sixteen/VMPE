@@ -18,10 +18,11 @@ For instance, caseBaseFile: "D:/codeTest/parameterExp/data/case1" ===> caseBaseF
 same for combinationFile,projectionFile,graphFile,imageMap,parameterFile
 
 ## File Structure
-That's how your project is supposed to be.(***main file structure***)
-|-- VMPE<br/>
-    |-- .gitignore<br/>
-    |-- README.md<br/>
+That's how your project is supposed to be.(***main file structure***)  
+
+|-- VMPE  
+&emsp;&emsp;|-- .gitignore  
+    |-- README.md  
     |-- backend<br/>
     |-- data<br/>
     |   |-- Readme.md<br/>
